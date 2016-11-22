@@ -16,7 +16,7 @@ import Pagar from 'app/components/Pagar';
 import App from 'app/components/App';
 
 // set dummy informacion de estado
-store.dispatch(actions.setInfo());
+// store.dispatch(actions.setInfo());
 
 store.subscribe(() => {
   var state = store.getState();
