@@ -10,4 +10,4 @@ var App = React.createClass({
   }
 });
 
-module.expors = App;
+module.exports = App;
