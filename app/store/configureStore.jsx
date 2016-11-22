@@ -1,12 +1,11 @@
 /* global window */
 import * as redux from 'redux';
 import thunk from 'redux-thunk';
-import {estadoReducers} from 'reducers';
+import {cadenaReducer} from 'reducers';
 
 export var configure = (initialState = {}) => {
   var reducer = redux.combineReducers({
-    ingredientesExtra: estadoReducers,
-    pagar: estadoReducers
+    cadena: cadenaReducer
   });
 
   var store = redux.createStore(reducer, initialState, redux.compose(

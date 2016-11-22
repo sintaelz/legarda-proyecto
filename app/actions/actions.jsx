@@ -5,10 +5,15 @@ export var setInfo = () => {
   };
 };
 
-export var updateInfo = (id, estado) => {
+export var updateInfo = (letra) => {
   return {
     type: 'UPDATE_INFO',
-    id,
-    estado
+    letra
+  };
+};
+
+export var deleteInfo = () => {
+  return {
+    type: 'DELETE_INFO'
   };
 };

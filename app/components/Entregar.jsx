@@ -5,39 +5,28 @@ const actions = require('actions');
 var {Link} = require('react-router');
 import Cadena from 'Cadena';
 
-var Pagar = React.createClass({
+var Entregar = React.createClass({
   handleSubmit: function() {
-    var {dispatch} = this.props;
-    dispatch(actions.updateInfo('a'));
-  },
-  handleSubmit2: function() {
-    var {dispatch} = this.props;
-    dispatch(actions.updateInfo('t'));
+    var {dispatch, cadena} = this.props;
+    dispatch(actions.updateInfo('A'));
   },
   render: function() {
     return (
-      <div className="pagar-jsx">
+      <div className="entregar-jsx">
         <button onClick={hashHistory.goBack} className="button large">Atrás</button>
           <table>
             <thead>
               <tr>
-                <th colSpan="1" className="table-title">Modo de pago que se Desea Hacer</th>
+                <th colSpan="1" className="table-title">Entregar al Cliente</th>
               </tr>
               <tr>
                 <th> </th>
               </tr>
             </thead>
             <tbody>
-            <Link to ="llamar-jsx">
               <tr>
-                <td className="expanded secondary button" onClick={() => this.handleSubmit2()}>Pago con Tarjeta</td>
+                <Link to="menu-jsx"><td className="expanded success button" onClick={() => this.handleSubmit()}>Entregar Mollete al Cliente</td></Link>
               </tr>
-            </Link>
-            <Link to ="llamar-jsx">
-              <tr>
-                <td className="expanded secondary button" onClick={() => this.handleSubmit()}>Pago en Efectivo</td>
-              </tr>
-            </Link>
               <tr>
                 <Cadena/>
               </tr>
@@ -54,4 +43,4 @@ export default connect(
       cadena: state.cadena
     };
   }
-)(Pagar);
+)(Entregar);

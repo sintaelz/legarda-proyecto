@@ -1,11 +1,21 @@
 const React = require('react');
+const {connect} = require('react-redux');
 
 var Cadena = React.createClass({
   render: function() {
+    var {cadena} = this.props;
     return (
-      <h1 className="clearfix">Cadena Component</h1>
+      <div>
+        Estado Actual del Pedido de Mollete: {cadena}
+      </div>
     );
   }
 });
 
-export default Cadena;
+export default connect(
+  state => {
+    return {
+      cadena: state.cadena
+    };
+  }
+)(Cadena);
