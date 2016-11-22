@@ -5,7 +5,8 @@ import {estadoReducers} from 'reducers';
 
 export var configure = (initialState = {}) => {
   var reducer = redux.combineReducers({
-    estado: estadoReducers
+    ingredientesExtra: estadoReducers,
+    pagar: estadoReducers
   });
 
   var store = redux.createStore(reducer, initialState, redux.compose(
