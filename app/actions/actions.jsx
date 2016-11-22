@@ -11,3 +11,9 @@ export var updateInfo = (letra) => {
     letra
   };
 };
+
+export var deleteInfo = () => {
+  return {
+    type: 'DELETE_INFO'
+  };
+};
