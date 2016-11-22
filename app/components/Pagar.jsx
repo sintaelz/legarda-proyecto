@@ -7,12 +7,12 @@ import Cadena from 'Cadena';
 
 var Pagar = React.createClass({
   handleSubmit: function() {
-    var {dispatch, cadena} = this.props;
-    if (cadena.charAt(1) != 'a' && cadena.charAt(1) != 't' && cadena.charAt(0) == 'x') {
-      dispatch(actions.updateInfo('a'));
-    } else if (cadena.charAt(1) != 't' && cadena.charAt(1) != 'a' && cadena.charAt(0) == 'x') {
-      dispatch(actions.updateInfo('t'));
-    }
+    var {dispatch} = this.props;
+    dispatch(actions.updateInfo('a'));
+  },
+  handleSubmit2: function() {
+    var {dispatch} = this.props;
+    dispatch(actions.updateInfo('t'));
   },
   render: function() {
     return (
@@ -28,12 +28,16 @@ var Pagar = React.createClass({
               </tr>
             </thead>
             <tbody>
+            <Link to ="llamar-jsx">
               <tr>
-                <Link to ="llamar-jsx"><td className="expanded secondary button" onClick={() => this.handleSubmit()}>Pago con Tarjeta</td></Link>
+                <td className="expanded secondary button" onClick={() => this.handleSubmit2()}>Pago con Tarjeta</td>
               </tr>
+            </Link>
+            <Link to ="llamar-jsx">
               <tr>
                 <td className="expanded secondary button" onClick={() => this.handleSubmit()}>Pago en Efectivo</td>
               </tr>
+            </Link>
               <tr>
                 <Cadena/>
               </tr>
