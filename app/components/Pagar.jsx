@@ -2,25 +2,19 @@ const React = require('react');
 const {hashHistory} = require('react-router');
 const {connect} = require('react-redux');
 const actions = require('actions');
+var {Link} = require('react-router');
+import Cadena from 'Cadena';
 
 var Pagar = React.createClass({
-  render: function() {
-    var {states, dispatch} = this.props;
-    var arrayState = [];
-    for (var estado in states) { // eslint-disable-line
-      arrayState.push(estado);
+  handleSubmit: function() {
+    var {dispatch, cadena} = this.props;
+    if (cadena.charAt(1) != 'a' && cadena.charAt(1) != 't' && cadena.charAt(0) == 'x') {
+      dispatch(actions.updateInfo('a'));
+    } else if (cadena.charAt(1) != 't' && cadena.charAt(1) != 'a' && cadena.charAt(0) == 'x') {
+      dispatch(actions.updateInfo('t'));
     }
-    var printRows = () => {
-      return arrayState.map(estado => { // eslint-disable-line
-          return (
-            <tr key={estado}>
-              <td>
-                Estado actual del pedido: {states[estado].estado}
-              </td>
-            </tr>
-          );
-      });
-    };
+  },
+  render: function() {
     return (
       <div className="pagar-jsx">
         <button onClick={hashHistory.goBack} className="button large">Atrás</button>
@@ -35,16 +29,14 @@ var Pagar = React.createClass({
             </thead>
             <tbody>
               <tr>
-                <td className="expanded secondary button" onClick={() =>
-                    dispatch(actions.updateInfo(1, [states].estado + 't'))
-                  }>Pago con Tarjeta</td>
+                <Link to ="llamar-jsx"><td className="expanded secondary button" onClick={() => this.handleSubmit()}>Pago con Tarjeta</td></Link>
               </tr>
               <tr>
-                <td className="expanded secondary button" onClick={() =>
-                    dispatch(actions.updateInfo(1, [states].estado + 'e'))
-                  }>Pago en Efectivo</td>
+                <td className="expanded secondary button" onClick={() => this.handleSubmit()}>Pago en Efectivo</td>
               </tr>
-              {printRows()}
+              <tr>
+                <Cadena/>
+              </tr>
             </tbody>
           </table>
       </div>
@@ -55,7 +47,7 @@ var Pagar = React.createClass({
 export default connect(
   state => {
     return {
-      states: state.ingredientesExtra
+      cadena: state.cadena
     };
   }
 )(Pagar);

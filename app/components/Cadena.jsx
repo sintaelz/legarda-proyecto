@@ -6,7 +6,7 @@ var Cadena = React.createClass({
     var {cadena} = this.props;
     return (
       <div>
-        {cadena}
+        Estado Actual del Pedido de Mollete: {cadena}
       </div>
     );
   }

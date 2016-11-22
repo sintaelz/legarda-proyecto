@@ -11,11 +11,6 @@ var Menu = React.createClass({
       <div className="menu-jsx">
         <Link to="ingredientes-extra-jsx"><div className="menu-item-square">Agregar Ingredientes Extras</div></Link>
         <Link to="pagar-jsx"><div className="menu-item-square">Pagar</div></Link>
-        <button className="button" onClick={
-            () => {
-              dispatch(actions.updateInfo('A'));
-            }
-          }>Agregar A</button>
         <Cadena/>
       </div>
     );
